@@ -5,7 +5,9 @@ Conflicts=getty@tty1.service
 After=systemd-user-sessions.service easysplash-quit.service
 
 [Service]
-ExecStart=/usr/bin/qt-kiosk-browser -platform eglfs /etc/qt-kiosk-browser.conf
+Type=simple
+ExecStart=/usr/bin/qt-kiosk-browser /etc/qt-kiosk-browser.conf \
+	-platform eglfs --no-sandbox
 
 [Install]
 Alias=display-manager.service
